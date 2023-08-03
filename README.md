@@ -25,16 +25,16 @@ Apollo Server is a GraphQL server implementation that takes a GraphQL schema and
   - Node
 
 ## Installation:
-  - Run `cd graphql-server` in console/terminal to redirect to project folder.
-  - Run `npm i` in console/terminal to install all the dependencies
-  - Create a new Schema(Database) in MySQL with the name of 'gql-mysql'.
-  - Import the data via the  `sql/gql-mysql.sql` file.
-  - Configure MySQL credential and database in `index.js` file.
+  1. Run `cd graphql-server` in console/terminal to redirect to project folder.
+  2. Run `npm i` in console/terminal to install all the dependencies
+  3. Create a new Schema(Database) in MySQL with the name of 'gql-mysql'.
+  4. Import the data via the  `sql/gql-mysql.sql` file.
+  5. Configure MySQL credential and database in `index.js` file.
 
 ## Start:
-  - Start local MySQL service.
-  - Run `npm start` to run Apollo Server.
-  - Access `localhost:4000` in browser (preferable Google Chrome) to access Apollo Server interface.
+  1. Start local MySQL service.
+  2. Run `npm start` to run Apollo Server.
+  3. Access `localhost:4000` in browser (preferable Google Chrome) to access Apollo Server interface.
 
 ## Apollo Server Scripts:
 Disclaimer: Run one script at a time to prevent errors.
