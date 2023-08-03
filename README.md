@@ -1,0 +1,91 @@
+# GraphQL Server with MySQL Integration
+The application is a simple GraphQL server that exposes a GraphQL API to perform CRUD operations on a MySQL database. It uses Apollo Server to handle incoming GraphQL requests and execute the requested operations. The GraphQL schema and resolvers are used to define the API and fetch data from the MySQL database.
+
+## Information:
+The integration code is fairly simple and consists of few core components.
+- MySQL pool
+- Resolvers
+- Schema
+- Apollo Server
+
+### MySQL Pool:
+The MySQL pool is a collection of reusable connections to the MySQL database. It helps manage and reuse connections efficiently, reducing the overhead of creating new connections for each database operation.
+
+### Schema:
+The schema in GraphQL defines the types of data that can be queried and the operations that clients can perform. It acts as a contract between the client and server, specifying what data can be requested and what data will be returned.
+
+### Resolvers:
+Resolvers are functions responsible for fetching data for each field in the GraphQL schema. They define how to retrieve or process the requested data from various data sources (e.g., databases, APIs) and return the results. It can help to convert data from a database into a format that the client expects. It acts as a bridge between the GraphQL server and the data sources.
+
+### Apollo Server:
+Apollo Server is a GraphQL server implementation that takes a GraphQL schema and resolvers as input. It handles incoming GraphQL queries and mutations, uses the resolvers to execute the requested operations, and returns the data to the client. Apollo Server provides various features like subscriptions, caching, and error handling to build robust GraphQL APIs.
+
+## Dependencies:
+  - MySQL Server
+  - Node
+
+## Installation:
+  - Run `cd graphql-server` in console/terminal to redirect to project folder.
+  - Run `npm i` in console/terminal to install all the dependencies
+  - Create a new Schema(Database) in MySQL with the name of 'gql-mysql'.
+  - Import the data via the  `sql/gql-mysql.sql` file.
+  - Configure MySQL credential and database in `index.js` file.
+
+## Start:
+  - Start local MySQL service.
+  - Run `npm start` to run Apollo Server.
+  - Access `localhost:4000` in browser (preferable Google Chrome) to access Apollo Server interface.
+
+## Apollo Server Scripts:
+Disclaimer: Run one script at a time to prevent errors.
+```
+# Show all data
+query {
+  users (name: "") {
+    name
+    email
+  }
+}
+
+# Show specific data
+query {
+  user (id: "2"){
+    name
+    email
+  }
+}
+
+# Add Data
+mutation {
+  addUser (
+    name: "Shane",
+    email: "shane@mail.com" 
+  ){
+  name
+  email
+}}
+
+# Update Data
+mutation {
+  updateUser (
+    id: "3"
+    name: "JunnFai",
+    email: "jf@mail.com" 
+  ){
+  name
+  email
+}}
+
+# Delete Data
+mutation {
+  deleteUser(id: 4) {
+    name
+    email
+}}
+```
+
+## References:
+- [GraphQL](https://graphql.org/)
+- [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+
+By [kelv26](https://github.com/kelv26)
