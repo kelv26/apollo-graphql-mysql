@@ -34,51 +34,56 @@ Apollo Server is a GraphQL server implementation that takes a GraphQL schema and
 ## Start:
   1. Start local MySQL service.
   2. Run `npm start` to run Apollo Server.
-  3. Access `localhost:4000` in browser (preferable Google Chrome) to access Apollo Server interface.
+
+## Usage:
+  1. Access `localhost:4000` in browser (preferable Google Chrome) to access Apollo Server interface. 
+  2. Copy and paste the scripts below to 'Operations' in Apollo Server interface.
+  3. Edit the values in the 'Variables' section (optional). 
+  4. Click on the 'Run' button to execute the script.
 
 ## Apollo Server Scripts:
 Disclaimer: Run one script at a time to prevent errors.
 ```
 # Show all data
-query {
-  users (name: "") {
+query ($name: String){
+  users (name: $name) {
     name
     email
   }
 }
 
 # Show specific data
-query {
-  user (id: "2"){
+query ($id: ID!){
+  user (id: $id){
     name
     email
   }
 }
 
 # Add Data
-mutation {
+mutation ($name: String!, $email: String!){
   addUser (
-    name: "Shane",
-    email: "shane@mail.com" 
+    name: $name,
+    email: $email
   ){
   name
   email
 }}
 
 # Update Data
-mutation {
+mutation ($id: ID!, $name: String!, $email: String!){
   updateUser (
-    id: "3"
-    name: "JunnFai",
-    email: "jf@mail.com" 
+    id: $id
+    name: $name
+    email: $email
   ){
   name
   email
 }}
 
 # Delete Data
-mutation {
-  deleteUser(id: 4) {
+mutation ($id: ID!){
+  deleteUser(id: $id) {
     name
     email
 }}
